@@ -1,0 +1,35 @@
+﻿@model SquareNumbers
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="m-auto">
+        <h4>Compare Two Square Numbers</h4>
+
+        <div class="row">
+            <div class="col-4">
+                @if (!String.IsNullOrEmpty(ViewBag.StatusMessage))
+                {
+                    var statusMessageClass = ViewBag.StatusKey;
+                    <div class="alert alert-@statusMessageClass alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        @ViewBag.StatusMessage
+                    </div>
+                }
+
+                <form method="post">
+                    <div class="form-group">
+                        <label>First Number</label>
+                        <input type="text" class="form-control" asp-for="FirstSquareNumber" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Second Number</label>
+                        <input type="text" class="form-control" asp-for="SecondSquareNumber" />
+                    </div>
+
+                    <input type="submit" value="Submit" class="btn btn-outline-primary" />
+                </form>
+            </div>
+        </div>
+    </div>
